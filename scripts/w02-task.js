@@ -15,16 +15,23 @@ const yearElement = document.querySelector("#year");
 imageElement = "images/ProfilePic.jpg";
 
 /* Step 4 - Adding Content */
-nameElement.innerHTML = "<strong>${fullName}</strong>";
+nameElement.innerHTML = "<strong>Anzehla Wolfley</strong>";
 yearElement.textContent = "{currentYear}";
 imageElement.setAttribute("src", profilePicture);
 profilePicture.setAttribute("alt", "Profile image of {profilePicture}");
+const imageElement = document.getElementById("images/ProfilePic.jpg");
+const altText = `Profile image of ${fullName}`;
+
+
 
 /* Step 5 - Array */
-Sweets = [Icecream, Cookies]
-Savory = [Pasta, Salad, Chicken, Rice]
-
-
-
-
-
+const Sweets = [Icecream, Cookies]
+const Savory = [Pasta, Salad, Chicken, Rice]
+foodElement.innerHTML = "<p>My favorite sweets: ${Sweets.join(", ")}</p><p>My favorite savory dishes: ${Savory.join(", ")}</p>";
+const favoriteFood = "Italian";
+Sweets.push(favoriteFood);
+foodElement.innerHTML += "<br>My favorite sweets: ${Sweets.join(", ")}<br>My favorite savory dishes: ${Savory.join(", ")}";
+Sweets.shift();
+foodElement.innerHTML += "<br>My favorite sweets: ${Sweets.join(", ")}";
+Sweets.pop();
+foodElement.innerHTML += "<br>My favorite sweets (updated): ${Sweets.join(", ")}";
