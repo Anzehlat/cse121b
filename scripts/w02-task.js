@@ -11,15 +11,14 @@ let profilePicture = "images/ProfilePic.jpg";
 const nameElement = document.getElementById("name");
 const foodElement = document.getElementById("food");
 const yearElement = document.querySelector("#year");
-
-imageElement = "images/ProfilePic.jpg";
+const imageElement = document.getElementById("images/ProfilePic.jpg");
 
 /* Step 4 - Adding Content */
 nameElement.innerHTML = "<strong>Anzehla Wolfley</strong>";
 yearElement.textContent = "{currentYear}";
 imageElement.setAttribute("src", profilePicture);
 profilePicture.setAttribute("alt", "Profile image of {profilePicture}");
-const imageElement = document.getElementById("images/ProfilePic.jpg");
+
 const altText = `Profile image of ${fullName}`;
 
 
