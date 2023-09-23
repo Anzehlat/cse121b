@@ -16,30 +16,22 @@ const imageElement = document.getElementById("images/ProfilePic.jpg");
 /* Step 4 - Adding Content */
 nameElement.innerHTML = "<strong>Anzehla Wolfley</strong>";
 yearElement.textContent = "2023";
-imageElement.setAttribute("src", profilePicture);
-profilePicture.setAttribute("alt", "Profile image of {profilePicture}");
-
+imageElement.setAttribute('src', profilePicture);
 const altText = `Profile image of ${fullName}`;
+imageElement.setAttribute('alt', altText);
 
 
 
 /* Step 5 - Array */
-const Sweets = [Icecream, Cookies]
-const Savory = [Pasta, Salad, Chicken, Rice]
-foodElement.innerHTML = `<p>My favorite sweets: ${Sweets.join(", ")}</p><p>My favorite savory dishes: ${Savory.join(", ")}</p>`;
-const food = "Italian";
-const favoriteFood = "Steak";
-Sweets.push(favoriteFood);
-/* Assuming you have already declared and updated the Sweets array with the new favorite food item as mentioned in the previous steps. */
-
-// Create a string with the updated content
-const updatedContent = `<p>My favorite sweets: ${Sweets.join(", ")}</p><p>My favorite savory dishes: ${Savory.join(", ")}</p>`;
+let favFoods = [Icecream, Cookies, Pasta, Salad, Chicken, Rice];
+let favoriteFood = "Steak";
+favoriteFood.push(favFoods);
 
 // Append the updated content to the existing content in the "food" element with a line break
-foodElement.innerHTML += `<br>${updatedContent}`;
-Sweets.shift(); // Removes the first element from the Sweets array
+foodElement.innerHTML += `<br>${favFoods}`;
+favFoods.shift(); // Removes the first element from the Sweets array
 // Append the modified Sweets array with a line break
-foodElement.innerHTML += `<br>My favorite sweets (updated): ${Sweets.join(", ")}`;
-Sweets.pop(); // Removes the last element from the Sweets array
+foodElement.innerHTML += `<br>My favorite foods (updated): ${favFoods.join(", ")}`;
+favFoods.pop(); // Removes the last element from the Sweets array
 // Append the final modified Sweets array with a line break
-foodElement.innerHTML += `<br>My favorite sweets (updated): ${Sweets.join(", ")}`;
+foodElement.innerHTML += `<br>My favorite foods (updated): ${favFoods.join(", ")}`;
