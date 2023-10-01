@@ -51,37 +51,45 @@ function divideNumbers (dividend, divisor) {
 document.querySelector('#divideNumbers').addEventListener('click', divideNumbers);
 
 /* Decision Structure */
-var currentDate = new Date();
-console.log(currentDate);
+let currentDate = new Date();
+var currentYear;
+currentYear = currentDate.getFullYear();
 
-var year = currentDate.getFullYear();
-console.log(year);
-document.getElementById("year");
+var yearInput = document.getElementById("year");
+yearInput.value = currentYear;
 
 
 /* ARRAY METHODS - Functional Programming */
 /* Output Source Array */
-let numbersArray = [1,2,3,4,5,6,7,8,9,10,11,12,13]
-document.getElementById("Array");
+let numbersArray = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+let numbersArrayElement = document.getElementById("array").innerHTML = numbersArray;
+
 
 /* Output Odds Only Array */
-var oddNumbers = numbersArray.filter(function(number) {
-    return number % 2 !== 0;
-});
-var oddsElement = document.getElementById("odds");
+let oddNumbers = numbersArray.filter(number => number % 2 === 1);
+let oddsElement = document.getElementById("odds");
+oddsElement.textContent = oddNumbers.join(', ');
 
 /* Output Evens Only Array */
 document.querySelector('#evens').innerHTML = numbersArray.filter(number => number % 2 === 0);
 
 /* Output Sum of Org. Array */
-numbersArray.reduce((sum, number) => sum + number)
-var sumElement = document.getElementById("sumOfArray");
+let sumOfArray = numbersArray.reduce((sum, number) => sum + number, 0);
+let sumOfArrayElement = document.getElementById("sumOfArray");
+
+sumOfArrayElement.textContent = sumOfArray;
 
 /* Output Multiplied by 2 Array */
-numbersArray.map(number => number * 2)
-var multipliedElement = document.getElementById("multiplied");
+let multipliedArray = numbersArray.map(number => number * 2);
+let multipliedElement = document.getElementById("multiplied");
+
+multipliedElement.textContent = multipliedArray.join(', ');
 
 /* Output Sum of Multiplied by 2 Array */
-var result = numbersArray.map(number => number * 2).reduce((sum, number) => sum + number);
-console.log(result);
-var sumOfMultipliedElement = document.getElementById("sumOfMultiplied");
+let sumOfMultiplied = numbersArray
+ .map(number=> number * 2)
+ .reduce((sum, number) => sum + number, 0);
+let sumOfMultipliedElement = document.getElementById("sumOfMultiplied");
+
+sumOfMultipliedElement.textContent = sumOfMultiplied;
+
