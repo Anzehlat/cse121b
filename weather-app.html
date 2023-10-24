@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Forecast App</title>
+</head>
+<body>
+    <h1>Weather Forecast App</h1>
+    
+    <input type="text" id="locationInput" placeholder="Enter a location">
+    <button onclick="getWeather()">Get Weather</button>
+    
+    <div id="weatherDisplay"></div>
+
+    <script type="module">
+        // JavaScript module for fetching weather data
+
+        async function getWeather() {
+            const location = document.getElementById('locationInput').value;
+            const apiKey = '82f6f533e71a536b482f678f0cb10dc2';
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`;
+
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                displayWeather(data);
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+            }
+        }
+
+        function displayWeather(data) {
+            const weatherDisplay = document.getElementById('weatherDisplay');
+            weatherDisplay.innerHTML = `
+                <h2>Weather for ${data.name}, ${data.sys.country}</h2>
+                <p>Temperature: ${data.main.temp}°C</p>
+                <p>Conditions: ${data.weather[0].description}</p>
+                <p>Wind Speed: ${data.wind.speed} m/s</p>
+                <p>Humidity: ${data.main.humidity}%</p>
+            `;
+        }
+    </script>
+</body>
+</html>
