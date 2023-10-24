@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Weather Forecast App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSE 121b | Weather Forecast App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
     <style>
         body {
             text-align: center;
@@ -27,7 +33,7 @@
         }
 
         #weatherInfoContainer {
-            text-align: center;
+            text-align: center; /* Center the weather information */
         }
     </style>
 </head>
@@ -45,10 +51,11 @@
     
     <div id="weatherDisplay">
         <div id="weatherInfoContainer">
+            <!-- Weather information will be centered here -->
         </div>
     </div>
 
-    <script src="scripts/weather-app.js"></script>
+    <script src="scripts/project.js"></script>
     <script>
       document.getElementById("year").innerHTML = new Date().getFullYear();
     </script>
