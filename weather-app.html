@@ -3,45 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather Forecast App</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        select, button {
+            margin: 10px;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+
+        #weatherDisplay {
+            text-align: left;
+        }
+
+        #weatherInfoContainer {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <h1>Weather Forecast App</h1>
     
-    <input type="text" id="locationInput" placeholder="Enter a location">
+    <select id="locationSelect">
+        <option value="Salt Lake City, US">Salt Lake City, Utah</option>
+        <option value="Phoenix, US">Phoenix, Arizona</option>
+        <option value="San Francisco, US">San Francisco, California</option>
+        <option value="Honolulu, US">Honolulu, Hawaii</option>
+    </select>
+    
     <button onclick="getWeather()">Get Weather</button>
     
-    <div id="weatherDisplay"></div>
+    <div id="weatherDisplay">
+        <div id="weatherInfoContainer">
+        </div>
+    </div>
 
-    <script type="module">
-        // JavaScript module for fetching weather data
-
-        async function getWeather() {
-            const location = document.getElementById('locationInput').value;
-            const apiKey = '82f6f533e71a536b482f678f0cb10dc2';
-            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`;
-
-            try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                displayWeather(data);
-            } catch (error) {
-                console.error('Error fetching weather data:', error);
-            }
-        }
-
-        function displayWeather(data) {
-            const weatherDisplay = document.getElementById('weatherDisplay');
-            weatherDisplay.innerHTML = `
-                <h2>Weather for ${data.name}, ${data.sys.country}</h2>
-                <p>Temperature: ${data.main.temp}°C</p>
-                <p>Conditions: ${data.weather[0].description}</p>
-                <p>Wind Speed: ${data.wind.speed} m/s</p>
-                <p>Humidity: ${data.main.humidity}%</p>
-            `;
-        }
+    <script src="scripts/weather-app.js"></script>
+    <script>
+      document.getElementById("year").innerHTML = new Date().getFullYear();
     </script>
 </body>
 </html>
